@@ -1,1 +1,1 @@
-# The default keymap for kbd4x
+# My custom keymap, featuring numpad layout, åäö
