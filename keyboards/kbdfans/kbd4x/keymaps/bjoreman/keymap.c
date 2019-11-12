@@ -31,7 +31,7 @@ enum {
 //Tap Dance Definitions
 qk_tap_dance_action_t tap_dance_actions[] = {
   //Tap once for Esc, twice for Caps Lock
-  [TD_SFT_LR]  = ACTION_TAP_DANCE_TOGGLE_LAYER(KC_LSFT, 3)
+  [TD_SFT_LR]  = ACTION_TAP_DANCE_LAYER_TOGGLE(KC_LSFT, 3)
 // Other declarations would go here, separated by commas, if you have them
 };
 
@@ -40,13 +40,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_ESC,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,     KC_Y,   KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC,
     LT(2, KC_TAB),  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,     KC_H,   KC_J,    KC_K,    KC_L,    SE_ACUT,   SE_APOS,
     TD(TD_SFT_LR), KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,     KC_N,   KC_M,    KC_COMM, KC_DOT, KC_SLSH,   KC_ENTER,
-    KC_LCTL, KC_LALT, KC_LGUI,    SE_LESS,    MO(1),    KC_SPACE,    KC_RGUI,   SE_LCBR_MAC, SE_RCBR_MAC,   LALT(KC_2), SE_QUES
+    KC_LCTL, KC_LALT, KC_LGUI,    SE_LESS,    MO(1),    KC_SPACE,    LALT(KC_4),   SE_LCBR_MAC, SE_RCBR_MAC,   LALT(KC_2), SE_QUES
   ),
 
  [1] = LAYOUT_planck_mit(
     KC_GRAVE,  LSFT(KC_1), LSFT(KC_2), LSFT(KC_3), LSFT(KC_4), LSFT(KC_5),  LSFT(KC_6),  LSFT(KC_7),  LSFT(KC_8),  LSFT(KC_9),  LSFT(KC_0),  SE_AE,
     KC_TAB,  SE_BSLS_MAC,  SE_PIPE_MAC,  SE_LBRC,   SE_RBRC,  ___,  KC_LEFT,  KC_DOWN,  KC_UP,   KC_RIGHT,  SE_OSLH, SE_AA,
-    LALT(KC_4),   SE_PLUS,  SE_GRV_MAC,  SE_LCBR_MAC,   SE_RCBR_MAC,  ___,   ___,  ___,   ___,   ___,    ___,  ___,
+    ___,   SE_PLUS,  SE_GRV_MAC,  SE_LCBR_MAC,   SE_RCBR_MAC,  ___,   ___,  ___,   ___,   ___,    ___,  ___,
     ___,   ___,  ___,  ___,   ___,  ___,  ___,   ___,  ___,   ___,   ___
   ),
 
