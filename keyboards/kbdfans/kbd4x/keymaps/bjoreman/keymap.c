@@ -23,23 +23,11 @@ enum custom_keycodes {
   KBD4X = SAFE_RANGE,
 };
 
-// Tap Dance declarations
-enum {
-  TD_SFT_LR = 0
-};
-
-//Tap Dance Definitions
-qk_tap_dance_action_t tap_dance_actions[] = {
-  //Tap once for Esc, twice for Caps Lock
-  [TD_SFT_LR]  = ACTION_TAP_DANCE_LAYER_TOGGLE(KC_LSFT, 3)
-// Other declarations would go here, separated by commas, if you have them
-};
-
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_planck_mit(
     KC_ESC,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,     KC_Y,   KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC,
     LT(2, KC_TAB),  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,     KC_H,   KC_J,    KC_K,    KC_L,    SE_ACUT,   SE_APOS,
-    TD(TD_SFT_LR), KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,     KC_N,   KC_M,    KC_COMM, KC_DOT, KC_SLSH,   KC_ENTER,
+    KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,     KC_N,   KC_M,    KC_COMM, KC_DOT, KC_SLSH,   KC_ENTER,
     KC_LCTL, KC_LALT, KC_LGUI,    SE_LESS,    MO(1),    KC_SPACE,    LALT(KC_4),   SE_LCBR_MAC, SE_RCBR_MAC,   LALT(KC_2), SE_QUES
   ),
 
