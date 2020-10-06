@@ -10,7 +10,6 @@ MCU = atmega32u4
 #   ATmega32A    bootloadHID
 #   ATmega328P   USBasp
 BOOTLOADER = atmel-dfu
-SPLIT_KEYBOARD = yes
 
 # Build Options
 #   change yes to no to disable
@@ -25,7 +24,6 @@ CONSOLE_ENABLE = no
 DEBUG_ENABLE = no
 EXTRAKEY_ENABLE = no
 FAUXCLICKY_ENABLE = no
-HD44780_ENABLE = no
 LEADER_ENABLE = no
 MIDI_ENABLE = no
 MOUSEKEY_ENABLE = yes
@@ -36,3 +34,4 @@ TAP_DANCE_ENABLE = no
 UCIS_ENABLE = no
 UNICODEMAP_ENABLE = no
 UNICODE_ENABLE = no
+SPLIT_KEYBOARD = yes
