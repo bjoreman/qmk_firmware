@@ -33,17 +33,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+------+------|                              |------+------+------+------+------+--------|
  * |Shift/Tb|   A  | Ctl/S| Alt/D| CMD/F|   G  |                              |   H  | Ctl/J| Alt/K| CMD/L|   ´  |Shft/Etr|
  * |--------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
- * | Ctrl/+ | Alt/Z|   X  |   C  |   V  |   B  |Cursor|      |  |      |      |   N  |   M  |   ,  |   .  |   -  |   '    |
+ * |    +   |   Z  |   X  |   C  |   V  |   B  |      |      |  |      |      |   N  |   M  |   ,  |   .  |   -  |   '    |
  * `----------------------+------+------+------+------+------|  |------+------+------+------+------+----------------------'
- *                        | Super|Shift |  CMD | Space|Numpad|  |      |Cursor|      |      |      |
- *                        |      |  +   |      | Lower|      |  |      |      |      |      |      |
+ *                        | Super|      |      | Space|Numpad|  |      |Cursor| More |      |      |
+ *                        |      |      |      | Lower|      |  |      |      |      |      |      |
  *                        `----------------------------------'  `----------------------------------'
  */
     [_QWERTY] = LAYOUT(
       KC_ESC, KC_Q,   KC_W,   KC_E,   KC_R,   KC_T,                                         KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC,
       LSFT_T(KC_TAB), KC_A,   LCTL_T(KC_S),   LALT_T(KC_D),   LGUI_T(KC_F),   KC_G,                                         KC_H,    RCTL_T(KC_J),    RALT_T(KC_K),    RGUI_T(KC_L), SE_ACUT, RSFT_T(KC_ENTER),
-      LCTL_T(SE_PLUS), LALT_T(KC_Z),   KC_X,   KC_C,   KC_V,   KC_B, MO(_CURSOR), _______, _______, _______, KC_N, KC_M, KC_COMM, KC_DOT,  KC_SLSH, SE_APOS,
-              MT(MOD_LSFT | MOD_LALT | MOD_LGUI, SE_LESS), LSFT_T(SE_PLUS), KC_LGUI, LT(_LOWER, KC_SPC), MO(_NUMPAD), _______, MO(_CURSOR), MO(_MORE), _______, _______
+      SE_PLUS, KC_Z,   KC_X,   KC_C,   KC_V,   KC_B, _______, _______, _______, _______, KC_N, KC_M, KC_COMM, KC_DOT,  KC_SLSH, SE_APOS,
+              MT(MOD_LSFT | MOD_LALT | MOD_LGUI, SE_LESS), _______, _______, LT(_LOWER, KC_SPC), MO(_NUMPAD), _______, MO(_CURSOR), MO(_MORE), _______, _______
     ),
 /*
  * Lower Layer: Symbols
