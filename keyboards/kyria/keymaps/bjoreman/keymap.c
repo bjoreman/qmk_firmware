@@ -24,26 +24,38 @@ enum layers {
     _MORE,
 };
 
+#define SUPR MT(MOD_LSFT | MOD_LALT | MOD_LGUI, SE_LESS)
+#define C_S LCTL_T(KC_S)
+#define A_D LALT_T(KC_D)
+#define G_F LGUI_T(KC_F)
+#define C_J RCTL_T(KC_J)
+#define A_K RALT_T(KC_K)
+#define G_L RGUI_T(KC_L)
+#define UNDO LGUI(KC_Z)
+#define CUT LGUI(KC_X)
+#define COPY LGUI(KC_C)
+#define PASTE LGUI(KC_V)
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /*
  * Base Layer: QWERTY
  *
  * ,-------------------------------------------.                              ,-------------------------------------------.
- * |  ESC   |   Q  |   W  |   E  |   R  |   T  |                              |   Y  |   U  |   I  |   O  |   P  |  | \   |
+ * |  ESC   |   Q  |   W  |   E  |   R  |   T  |                              |   Y  |   U  |   I  |   O  |   P  |  Bspc  |
  * |--------+------+------+------+------+------|                              |------+------+------+------+------+--------|
  * |Shift/Tb|   A  | Ctl/S| Alt/D| CMD/F|   G  |                              |   H  | Ctl/J| Alt/K| CMD/L|   ´  |Shft/Etr|
  * |--------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
- * |    +   |   Z  |   X  |   C  |   V  |   B  |      |      |  |      |      |   N  |   M  |   ,  |   .  |   -  |   '    |
+ * |    +   |   Z  |   X  |   C  |   V  |   B  |      | Undo |  | Copy | Cut  |   N  |   M  |   ,  |   .  |   -  |   '    |
  * `----------------------+------+------+------+------+------|  |------+------+------+------+------+----------------------'
- *                        | Super|      |      | Space|Numpad|  |      |Cursor| More |      |      |
+ *                        | Super|      |      | Space|Numpad|  | Paste|Cursor| More |      |      |
  *                        |      |      |      | Lower|      |  |      |      |      |      |      |
  *                        `----------------------------------'  `----------------------------------'
  */
     [_QWERTY] = LAYOUT(
-      KC_ESC, KC_Q,   KC_W,   KC_E,   KC_R,   KC_T,                                         KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC,
-      LSFT_T(KC_TAB), KC_A,   LCTL_T(KC_S),   LALT_T(KC_D),   LGUI_T(KC_F),   KC_G,                                         KC_H,    RCTL_T(KC_J),    RALT_T(KC_K),    RGUI_T(KC_L), SE_ACUT, RSFT_T(KC_ENTER),
-      SE_PLUS, KC_Z,   KC_X,   KC_C,   KC_V,   KC_B, _______, _______, _______, _______, KC_N, KC_M, KC_COMM, KC_DOT,  KC_SLSH, SE_APOS,
-              MT(MOD_LSFT | MOD_LALT | MOD_LGUI, SE_LESS), _______, _______, LT(_LOWER, KC_SPC), MO(_NUMPAD), _______, MO(_CURSOR), MO(_MORE), _______, _______
+      KC_ESC, KC_Q,   KC_W,   KC_E,   KC_R,   KC_T,                               KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC,
+      LSFT_T(KC_TAB), KC_A,   C_S,   A_D,   G_F,   KC_G,                          KC_H,    C_J,    A_K,    G_L, SE_ACUT, RSFT_T(KC_ENTER),
+      SE_PLUS, KC_Z,  KC_X,   KC_C,  KC_V,  KC_B, _______, UNDO,       COPY, CUT, KC_N, KC_M, KC_COMM, KC_DOT,  KC_SLSH, SE_APOS,
+              SUPR, _______, _______, LT(_LOWER, KC_SPC), MO(_NUMPAD), PASTE, MO(_CURSOR), MO(_MORE), _______, _______
     ),
 /*
  * Lower Layer: Symbols
@@ -51,7 +63,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-------------------------------------------.                              ,-------------------------------------------.
  * |   §    |  !   |  "   |  #   |  €   |  %   |                              |   &  |  /   |  (   |  )   |  =   |        |
  * |--------+------+------+------+------+------|                              |------+------+------+------+------+--------|
- * |   $    |  |   |  {   |  }   |  @   |  ?   |                              |   ±  |  Å   |  Ä   |  Ö   |  ^   |        |
+ * |   $    |  |   |  {   |  }   |  @   |  ?   |                              |   ±  |  Å   |  Ä   |  Ö   |  ~   |        |
  * |--------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
  * |        |      |      |      |      |      |      |      |  |      |      |      |      |      |      |      |        |
  * `----------------------+------+------+------+------+------|  |------+------+------+------+------+----------------------'
@@ -66,7 +78,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
     ),
 /*
- * Raise Layer: Number keys, media, navigation
+ * Raise Layer: Number keys, extra arrows
  *
  * ,-------------------------------------------.                              ,-------------------------------------------.
  * |        |      |      |      |      |      |                              |      |  7   |  8   |  9   |      |        |
@@ -87,7 +99,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
 /*
- * Layer template
+ * Arrow keys
  *
  * ,-------------------------------------------.                              ,-------------------------------------------.
  * |        |      |      |      |      |      |                              |      |      |      |      |      |        |
@@ -239,17 +251,17 @@ void encoder_update_user(uint8_t index, bool clockwise) {
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case LCTL_T(KC_S):
-            return TAPPING_TERM + 1250;
+            return TAPPING_TERM + LONG_TAPPING_TERM;
         case LALT_T(KC_D):
-            return TAPPING_TERM + 1250;
+            return TAPPING_TERM + LONG_TAPPING_TERM;
         case LGUI_T(KC_F):
-            return TAPPING_TERM + 1250;
+            return TAPPING_TERM + LONG_TAPPING_TERM;
         case RCTL_T(KC_J):
-            return TAPPING_TERM + 1250;
+            return TAPPING_TERM + LONG_TAPPING_TERM;
         case RALT_T(KC_K):
-            return TAPPING_TERM + 1250;
+            return TAPPING_TERM + LONG_TAPPING_TERM;
         case RGUI_T(KC_L):
-            return TAPPING_TERM + 1250;
+            return TAPPING_TERM + LONG_TAPPING_TERM;
         default:
             return TAPPING_TERM;
     }
