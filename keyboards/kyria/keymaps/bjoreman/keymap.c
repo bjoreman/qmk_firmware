@@ -31,6 +31,7 @@ enum layers {
 #define A_K RALT_T(KC_K)
 #define G_L RGUI_T(KC_L)
 #define UNDO LGUI(KC_Z)
+#define REDO SGUI(KC_Z)
 #define CUT LGUI(KC_X)
 #define COPY LGUI(KC_C)
 #define PASTE LGUI(KC_V)
@@ -42,19 +43,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-------------------------------------------.                              ,-------------------------------------------.
  * |  ESC   |   Q  |   W  |   E  |   R  |   T  |                              |   Y  |   U  |   I  |   O  |   P  |  Bspc  |
  * |--------+------+------+------+------+------|                              |------+------+------+------+------+--------|
- * |Shift/Tb|   A  | Ctl/S| Alt/D| CMD/F|   G  |                              |   H  | Ctl/J| Alt/K| CMD/L|   ´  |Shft/Etr|
+ * |  Shift |   A  | Ctl/S| Alt/D| CMD/F|   G  |                              |   H  | Ctl/J| Alt/K| CMD/L|   ´  |Shft/Etr|
  * |--------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
- * |    +   |   Z  |   X  |   C  |   V  |   B  |      | Undo |  | Copy | Cut  |   N  |   M  |   ,  |   .  |   -  |   '    |
+ * |    +   |   Z  |   X  |   C  |   V  |   B  | Redo | Undo |  | Copy | Cut  |   N  |   M  |   ,  |   .  |   -  |   '    |
  * `----------------------+------+------+------+------+------|  |------+------+------+------+------+----------------------'
- *                        | Hyper|      |      | Space|Numpad|  | Paste|Cursor| More |      |      |
+ *                        | Hyper|      | Tab  | Space|Numpad|  | Paste|Cursor| More |      |      |
  *                        |      |      |      | Lower|      |  |      |      |      |      |      |
  *                        `----------------------------------'  `----------------------------------'
  */
     [_QWERTY] = LAYOUT(
       KC_ESC, KC_Q,   KC_W,   KC_E,   KC_R,   KC_T,                               KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC,
-      LSFT_T(KC_TAB), KC_A,   C_S,   A_D,   G_F,   KC_G,                          KC_H,    C_J,    A_K,    G_L, SE_ACUT, RSFT_T(KC_ENTER),
-      SE_PLUS, KC_Z,  KC_X,   KC_C,  KC_V,  KC_B, _______, UNDO,       COPY, CUT, KC_N, KC_M, KC_COMM, KC_DOT,  KC_SLSH, SE_APOS,
-              KC_HYPR, _______, _______, LT(_LOWER, KC_SPC), MO(_NUMPAD), PASTE, MO(_CURSOR), MO(_MORE), _______, _______
+      KC_LSFT, KC_A,   C_S,   A_D,   G_F,   KC_G,                          KC_H,    C_J,    A_K,    G_L, SE_ACUT, RSFT_T(KC_ENTER),
+      SE_PLUS, KC_Z,  KC_X,   KC_C,  KC_V,  KC_B, REDO, UNDO,       COPY, CUT, KC_N, KC_M, KC_COMM, KC_DOT,  KC_SLSH, SE_APOS,
+              KC_HYPR, _______,  KC_TAB, LT(_LOWER, KC_SPC), MO(_NUMPAD), PASTE, MO(_CURSOR), MO(_MORE), _______, _______
     ),
 /*
  * Lower Layer: Symbols
